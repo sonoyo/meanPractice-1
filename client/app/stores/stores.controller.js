@@ -16,20 +16,30 @@ angular.module('meanSampleApp')
           $scope.newFlg = $scope.newFlg ? false : true;
       };
 
+
       $scope.registerStore = function() {
           $http({
               url: '/registerStore',
               method: 'POST',
               data: {
-                  "storeName": $scope.store.storeName,
-                  "storeTel" : $scope.store.storeTel,
-                  "storeType": $scope.store.storeType,
-                  "storeSeen": $scope.store.storeSeen,
-                  "storeRate": $scope.store.storeRate
+                  storeName: $scope.store.storeName,
+                  storeTel : $scope.store.storeTel,
+                  storeType: $scope.store.storeType,
+                  storeSeen: $scope.store.storeSeen,
+                  storeRate: $scope.store.storeRate
               }
           })
           .success(function(data) {
+              alert('登録完了しました。');
               $scope.stores.push(data);
+              $scope.newFlg = false;
+              $scope.store = {
+                  storeName: '',
+                  storeTel : '',
+                  storeType: '',
+                  storeSeen: '',
+                  storeRate: ''
+              };
           });
       };
 
@@ -65,6 +75,7 @@ angular.module('meanSampleApp')
       };
 
       $scope.updateStore = function() {
+
           var updateStore = {
               storeName : $scope.store.storeName,
               storeTel : $scope.store.storeTel,
@@ -78,8 +89,16 @@ angular.module('meanSampleApp')
               data: updateStore
           })
           .success(function(data) {
-              console.log(data);
               $scope.stores = data;
+              $scope.store = {
+                  storeName: '',
+                  storeTel : '',
+                  storeType: '',
+                  storeSeen: '',
+                  storeRate: ''
+              };
+              $scope.editFlg = false;
+              alert('更新完了しました。');
           });
       };
 

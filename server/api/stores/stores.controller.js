@@ -52,8 +52,10 @@ exports.updateStore = function(req, res) {
         data.storeTel = req.body.storeTel;
         data.storeType = req.body.storeType;
         data.storeSeen = req.body.storeSeen;
-        data.storeRate = req.body.storeRate;
+        data.storeRate = req.body.storeRate * 1;
 
+        data.save();
+        console.log(data);
         Stores.find({}, function(err, dataAll) {
             res.json(dataAll);
         });
