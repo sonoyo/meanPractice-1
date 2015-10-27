@@ -1,0 +1,138 @@
+<div ng-controller="StoresController">
+    <h1 class="page-header">Stores&nbsp;&nbsp;<small class="small">$httpを利用してMongoと通信のサンプル</small></h1>
+    <div class="row">
+        <div class="container-fluid">
+            <button type="button" name="newStore" class="btn btn-info" ng-click="showRegister()" ng-disabled="editFlg">Register Store</button>
+        </div>
+    </div>
+    <br>
+    <div ng-show="newFlg">
+        <div class="row">
+            <div class="container-fluid">
+                <h3 class="page-header" ng-bind="title"></h3>
+                  <form class="form-horizontal" ng-submit="registerStore()" name="registerForm">
+                        <div class="container-fluid">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <input type="text" name="storeName" value="" placeholder="店舗名" class="form-control" ng-model="store.storeName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <input type="text" name="storeTel" placeholder="電話番号" class="form-control" value="" ng-model="store.storeTel">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <input type="text" name="storeType" placeholder="種類" class="form-control" value="" ng-model="store.storeType">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <input type="text" name="storeSeen" placeholder="シーン" class="form-control" value="" ng-model="store.storeSeen">
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <input type="text" name="storeRate" placeholder="レート" class="form-control" value="" ng-model="store.storeRate">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <input type="submit" value="登録" class="form-control btn btn-info" ng-disabled="registerForm.$invalid">
+                                </div>
+                            </div>
+                        </div>
+                  </form>
+            </div>
+        </div>
+    </div>
+    <div ng-show="editFlg">
+        <div class="row">
+            <div class="container-fluid">
+                <h3 class="page-header" ng-bind="title"></h3>
+                  <form class="form-horizontal" ng-submit="updateStore()" name="updateForm">
+                        <div class="container-fluid">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <input type="text" name="storeName" value="" placeholder="店舗名" class="form-control" ng-model="store.storeName" readonly="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <input type="text" name="storeTel" placeholder="電話番号" class="form-control" ng-model="store.storeTel">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <input type="text" name="storeType" placeholder="種類" class="form-control" ng-model="store.storeType">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <input type="text" name="storeSeen" placeholder="シーン" class="form-control" ng-model="store.storeSeen">
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <input type="text" name="storeRate" placeholder="レート" class="form-control" ng-model="store.storeRate">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <input type="submit" value="更新" class="form-control btn btn-success" ng-disabled="updateForm.$invalid">
+                                </div>
+                            </div>
+                        </div>
+                  </form>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <tr class="info">
+            <th>
+                店舗名
+            </th>
+            <th>
+                電話番号
+            </th>
+            <th>
+                種類
+            </th>
+            <th>
+                シーン
+            </th>
+            <th>
+                レート
+            </th>
+            <th>
+                編集/削除
+            </th>
+        </tr>
+        <tr ng-repeat="store in stores">
+            <td>
+                {{store.storeName}}
+            </td>
+            <td>
+                {{store.storeTel}}
+            </td>
+            <td>
+                {{store.storeType}}
+            </td>
+            <td>
+                {{store.storeSeen}}
+            </td>
+            <td>
+                {{store.storeRate}}
+            </td>
+            <td>
+                <input type="button" name="editBtn" value="編集" class="btn btn-xs btn-success rowNo-{{$index}}" ng-click="onEdit($index)" ng-disabled="newFlg">
+                <input type="button" name="deleteBtn" value="削除" class="btn btn-xs btn-primary rowNo-{{$index}}" ng-click="onDelete($index)">
+            </td>
+        </tr>
+    </table>
+    <!-- <input type="text" ng-model="book.storeName" placeholder="Name">
+    <input type="text" value="" ng-model="book.storeTel" placeholder="Tel">
+    <input type="text" value="" ng-model="book.storeType" placeholder="Type">
+    <button type="button" ng-click="addStore()">追加</button> -->
+</div>

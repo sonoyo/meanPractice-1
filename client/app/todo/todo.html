@@ -1,0 +1,30 @@
+<div ng-controller="TodoController">
+    <style media="screen">
+        .task-true {
+            color: red;
+            text-decoration: line-through;
+        }
+    </style>
+    <h1 class="page-header">Todo&nbsp;&nbsp;<small>jQueryチックなDOM操作 ※DB連携なし</small></h1>
+    <p>
+        Finished: {{getDoneCount()}} / {{tasks.length}}
+        <button type="button" name="button" ng-click="deleteDone()" class="btn btn-xs btn-primary">完了を削除</button>
+    </p>
+    <table class="table">
+        <tr ng-repeat="task in tasks">
+            <td>
+                <input type="checkbox" name="name" value="" ng-model="task.done">
+            </td>
+            <td>
+                <span class="task-{{task.done}}">{{task.body}}</span>
+            </td>
+            <td>
+                <input type="button" name="name" value="削除" class="btn btn-xs btn-warning" ng-click="tasks.splice($index, 1)">
+            </td>
+        </tr>
+    </table>
+    <form ng-submit="addNew()">
+        <input type="text" name="body" value="" ng-model="addTaskBody">
+        <input type="submit" value="Add">
+    </form>
+</div>
