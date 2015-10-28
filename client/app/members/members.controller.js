@@ -1,19 +1,29 @@
 angular.module('meanSampleApp')
   .controller('MembersController', ['$scope', '$http', '$stateParams', '$uibModal', function($scope, $http, $stateParams, $uibModal) {
 
+        $scope.lists = [
+            {name: 'list1', score: 1},
+            {name: 'list2', score: 2},
+            {name: 'list3', score: 3},
+        ];
+
+        $scope.modalTitle = 'なひー';
+
+
         $scope.showModal = function() {
             var modalInstance = $uibModal.open({
-                templateUrl: 'app/modal/modal.showDelete.html',
-                backdrop   : 'static',
+                templateUrl: 'app/modal/modal.registerList.html',
                 controller : 'ModalController',
                 scope: $scope
             });
 
+            modalInstance.result.then(
+                function() {
+                    console.log('hello');
+                }
+            );
         };
 
-        $scope.ok = function() {
-            console.log('ok');
-        };
 
         $scope.data = {
               'type': 'BarChart',
