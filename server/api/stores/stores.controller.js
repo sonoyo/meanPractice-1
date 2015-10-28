@@ -46,17 +46,13 @@ exports.deleteStore = function(req, res) {
 
 exports.updateStore = function(req, res) {
     Stores.findOne({storeName: req.body.storeName}, function(err, data) {
-        console.log(data);
         data.storeTel = req.body.storeTel;
         data.storeType = req.body.storeType;
         data.storeSeen = req.body.storeSeen;
         data.storeRate = req.body.storeRate * 1;
-
         data.save();
 
-        Stores.find({}, function(err, dataAll) {
-            console.log(dataAll);
-            res.json(dataAll);
+        res.json(data);
+
         });
-    });
 };

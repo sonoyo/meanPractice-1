@@ -3,7 +3,8 @@ var app = angular.module('meanSampleApp', [
   'ui.router',
   'ngMessages',
   'googlechart',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngAnimate'
 ]);
 
 //クライアント側ルーティング処理

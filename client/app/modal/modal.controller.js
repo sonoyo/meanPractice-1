@@ -1,5 +1,5 @@
 angular.module('meanSampleApp')
-    .controller('ModalController', ['$scope', '$http', '$uibModalInstance', function($scope, $http, $uibModalInstance) {
+    .controller('ModalController', ['$scope', '$http', '$uibModalInstance', '$timeout', function($scope, $http, $uibModalInstance, $timeout) {
         $scope.modalRegister = function() {
             $http({
                 url: '/registerStore',
@@ -35,6 +35,7 @@ angular.module('meanSampleApp')
         };
 
         $scope.modalUpdate = function() {
+
             $http({
                 method: 'POST',
                 url: '/updateStore',
@@ -47,8 +48,16 @@ angular.module('meanSampleApp')
                 }
             })
             .success(function(data) {
-                $scope.stores = data;
                 $scope.modalInstance.dismiss();
+                $scope.stores[$scope.selectRowNo] = data;
+                // if(!$scope.$$phase){
+                //     $scope.$apply(function(scope){
+                //       console.log(scope);
+                //       console.log(data);
+                //       scope.stores = data;
+                //     });
+                //     console.log($scope.stores);
+                // }
             });
         };
 
