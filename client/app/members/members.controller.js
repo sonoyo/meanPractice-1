@@ -1,27 +1,21 @@
 angular.module('meanSampleApp')
-  .controller('MembersController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams) {
-          $scope.id = $stateParams.id;
-          $scope.members = [
-              {name: '田添', age:21, gender:'男'},
-              {name: 'おに', age:21, gender:'男'}
-          ];
+  .controller('MembersController', ['$scope', '$http', '$stateParams', '$uibModal', function($scope, $http, $stateParams, $uibModal) {
 
-          $scope.onShow = function() {
-              $scope.show = $scope.show ? false : true;
-          };
+        $scope.showModal = function() {
+            var modalInstance = $uibModal.open({
+                templateUrl: 'app/modal/modal.showDelete.html',
+                backdrop   : 'static',
+                controller : 'ModalController',
+                scope: $scope
+            });
 
-          $scope.registerMember = function() {
-              var newMember = {
-                  name: $scope.name,
-                  age : $scope.age,
-                  gender: $scope.gender
-              };
-              $scope.members.push(newMember);
-              console.log($scope.members);
+        };
 
-          };
+        $scope.ok = function() {
+            console.log('ok');
+        };
 
-          $scope.data = {
+        $scope.data = {
               'type': 'BarChart',
               'data': {
                     //列の情報定義
