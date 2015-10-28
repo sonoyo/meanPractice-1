@@ -2,7 +2,8 @@
 var app = angular.module('meanSampleApp', [
   'ui.router',
   'ngMessages',
-  'googlechart'
+  'googlechart',
+  'ui.bootstrap'
 ]);
 
 //クライアント側ルーティング処理

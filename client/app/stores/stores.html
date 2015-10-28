@@ -88,49 +88,51 @@
             </div>
         </div>
     </div>
-    <table class="table table-bordered">
-        <tr class="info">
-            <th>
-                店舗名
-            </th>
-            <th>
-                電話番号
-            </th>
-            <th>
-                種類
-            </th>
-            <th>
-                シーン
-            </th>
-            <th>
-                レート
-            </th>
-            <th>
-                編集/削除
-            </th>
-        </tr>
-        <tr ng-repeat="store in stores">
-            <td>
-                {{store.storeName}}
-            </td>
-            <td>
-                {{store.storeTel}}
-            </td>
-            <td>
-                {{store.storeType}}
-            </td>
-            <td>
-                {{store.storeSeen}}
-            </td>
-            <td>
-                {{store.storeRate}}
-            </td>
-            <td>
-                <input type="button" name="editBtn" value="編集" class="btn btn-xs btn-success rowNo-{{$index}}" ng-click="onEdit($index)" ng-disabled="newFlg">
-                <input type="button" name="deleteBtn" value="削除" class="btn btn-xs btn-primary rowNo-{{$index}}" ng-click="onDelete($index)">
-            </td>
-        </tr>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr class="info">
+                <th>
+                    店舗名
+                </th>
+                <th>
+                    電話番号
+                </th>
+                <th>
+                    種類
+                </th>
+                <th>
+                    シーン
+                </th>
+                <th>
+                    レート
+                </th>
+                <th>
+                    編集/削除
+                </th>
+            </tr>
+            <tr ng-repeat="store in stores">
+                <td>
+                    {{store.storeName}}
+                </td>
+                <td>
+                    {{store.storeTel}}
+                </td>
+                <td>
+                    {{store.storeType}}
+                </td>
+                <td>
+                    {{store.storeSeen}}
+                </td>
+                <td>
+                    {{store.storeRate}}
+                </td>
+                <td>
+                    <input type="button" name="editBtn" value="編集" class="btn btn-xs btn-success rowNo-{{$index}}" ng-click="onEdit($index)" ng-disabled="newFlg">
+                    <input type="button" name="deleteBtn" value="削除" class="btn btn-xs btn-primary rowNo-{{$index}}" ng-click="onDelete($index)">
+                </td>
+            </tr>
+        </table>
+    </div>
     <!-- <input type="text" ng-model="book.storeName" placeholder="Name">
     <input type="text" value="" ng-model="book.storeTel" placeholder="Tel">
     <input type="text" value="" ng-model="book.storeType" placeholder="Type">
