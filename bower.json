@@ -24,6 +24,7 @@
     "angular-ui-router": "~0.2.15",
     "angular-route": "~1.4.7",
     "angular-messages": "~1.4.7",
-    "angular-resource": "~1.4.7"
+    "angular-resource": "~1.4.7",
+    "angular-google-chart": "~0.0.11"
   }
 }

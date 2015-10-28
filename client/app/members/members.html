@@ -1,50 +1,16 @@
 <div ng-controller="MembersController">
-    <h1 class="page-header">Members&nbsp;&nbsp;<small>$resourseサービスを利用したMongo通信サンプル</small></h1>
-    <button type="button" name="button" class="btn btn-primary" ng-click="onShow()">メンバー追加</button>
-    <div ng-show="show">
-        <br>
-        <div class="form-group">
-          <input type="text" name="name" placeholder="name" class="form-control" value="" ng-model="name">
-        </div>
-        <div class="form-group">
-          <input type="text" name="age" placeholder="Age" class="form-control" value="" ng-model="age">
-        </div>
-        <div class="form-group">
-          <input type="text" name="gender" placeholder="Gender" class="form-control" value="" ng-model="gender">
-        </div>
-        <div class="form-group">
-            <button type="button" class="btn btn-info form-control" ng-click="registerMember()">登録</button>
+    <h1 class="page-header">SampleComponents&nbsp;&nbsp;<small>Angularの機能モック</small></h1>
+    <br>
+    <div class="row">
+        <div class="container-fluid">
+            <h3 class="page-header">GoogleChart</h1>
+            <div google-chart chart="data">
+            </div>
         </div>
     </div>
-    <br>
-    <br>
-    <div ng-controller="MembersController">
-        <div class="row">
-            <div class="container-fluid">
-                  <table class="table table-bordered">
-                      <tr class="warning">
-                          <th>
-
-                          </th>
-                          <th>
-                              Age
-                          </th>
-                          <th>
-                              Gender
-                          </th>
-                      </tr>
-                      <tr ng-repeat="member in members">
-                          <td>
-                              {{member.name}}
-                          </td>
-                          <td>
-                              {{member.age}}
-                          </td>
-                          <td>
-                              {{member.gender}}
-                          </td>
-                      </tr>
-                  </table>
+    <div class="row">
+        <div class="container-fluid">
+            <h3 class="page-header">UI Bootstrap</h1>
             </div>
         </div>
     </div>

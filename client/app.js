@@ -1,7 +1,8 @@
 //アプリケーションモジュールの作成
 var app = angular.module('meanSampleApp', [
   'ui.router',
-  'ngMessages'
+  'ngMessages',
+  'googlechart'
 ]);
 
 //クライアント側ルーティング処理
@@ -34,10 +35,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
               '' : {
                   controller: 'MembersController',
                   templateUrl: 'app/members/members.html'
-              },
-              'second': {
-                  controller: 'MembersController',
-                  templateUrl: 'app/members/members.table.html'
               }
           }
         })
