@@ -48,6 +48,7 @@ angular.module('meanSampleApp')
                 }
             })
             .success(function(data) {
+
                 $scope.modalInstance.dismiss();
                 $scope.stores[$scope.selectRowNo] = data;
                 // if(!$scope.$$phase){

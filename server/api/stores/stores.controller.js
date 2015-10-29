@@ -52,7 +52,10 @@ exports.updateStore = function(req, res) {
         data.storeRate = req.body.storeRate * 1;
         data.save();
 
-        res.json(data);
-
         });
+
+    Stores.find({}, function(err, data) {
+        var data1 = data[0];
+        res.json(data1);
+    });
 };
