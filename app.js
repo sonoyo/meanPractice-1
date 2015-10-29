@@ -45,7 +45,7 @@ var port = process.env.port || 5555;
         secret: 'secret',
         store: new MongoStore({
             db: 'session',
-            host: 'localhost',
+            host: 'ec2-52-22-178-90.compute-1.amazonaws.com',
             clear_interval: 60 * 60
         }),
         cookie: {

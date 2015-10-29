@@ -5,3 +5,27 @@ h1, h3 {
 small {
     font-size: 15px !important;
 }
+
+.animate{
+	-webkit-transition:linear 0.3s;
+	-moz-transition:linear 3s;
+	-ms-transition:linear 3s;
+	-o-transition:linear 3s;
+	transition:linear 0.3s;
+}
+
+.animate.ng-enter{
+	opacity:0;
+}
+
+.animate.ng-enter-active{
+	opacity:1;
+}
+
+.animate.ng-leave{
+	opacity:0;
+}
+
+.animate.ng-leave-active{
+	opacity:0;
+}

@@ -12,7 +12,6 @@ exports.registerStore = function(req, res) {
     var allStores;
     Stores.find({}, function(err, data) {
         allStores = data;
-        console.log(allStores);
     });
 
     var id;
@@ -46,16 +45,17 @@ exports.deleteStore = function(req, res) {
 };
 
 exports.updateStore = function(req, res) {
-    console.log(req.body.storeName);
     Stores.findOne({storeName: req.body.storeName}, function(err, data) {
-        console.log(data);
         data.storeTel = req.body.storeTel;
         data.storeType = req.body.storeType;
         data.storeSeen = req.body.storeSeen;
-        data.storeRate = req.body.storeRate;
+        data.storeRate = req.body.storeRate * 1;
+        data.save();
 
-        Stores.find({}, function(err, dataAll) {
-            res.json(dataAll);
         });
+
+    Stores.find({}, function(err, data) {
+        var data1 = data[0];
+        res.json(data1);
     });
 };
